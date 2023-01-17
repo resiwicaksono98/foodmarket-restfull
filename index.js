@@ -29,12 +29,12 @@ const app = express();
 //       },
 //    })
 // );
-app.use(
-   cors({
-      credentials: true,
-      origin: ["http://localhost:5173", "http://localhost:4173"],
-   })
-);
+// app.use(
+//    cors({
+//       credentials: true,
+//       origin: ["http://localhost:5173", "http://localhost:4173"],
+//    })
+// );
 
 app.get("/", () => {
    console.log("Test cyclic");
