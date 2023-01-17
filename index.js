@@ -18,7 +18,7 @@ const store = new MongoDBStore({
 app.use(
    session({
       name: "kepo",
-      secret: secretKey,
+      secret: "resiwicaksonoxfitriani",
       resave: false,
       saveUninitialized: false,
       store: store,
