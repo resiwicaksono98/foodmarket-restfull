@@ -9,26 +9,26 @@ const express = require("express");
 const { secretKey } = require("./config/Config");
 const app = express();
 
-const store = new MongoDBStore({
-   uri: "mongodb+srv://resiwicaksono:thonkwaq123@cluster0.a3dlh.mongodb.net/?retryWrites=true&w=majority",
-   collection: "session",
-});
+// const store = new MongoDBStore({
+//    uri: "mongodb+srv://resiwicaksono:thonkwaq123@cluster0.a3dlh.mongodb.net/?retryWrites=true&w=majority",
+//    collection: "session",
+// });
 
 // Set Session
-app.use(
-   session({
-      name: "kepo",
-      secret: "resiwicaksonoxfitriani",
-      resave: false,
-      saveUninitialized: false,
-      store: store,
-      cookie: {
-         secure: "auto",
-         httpOnly: true,
-         maxAge: 1000 * 60 * 60 * 24 * 1, // 1 Day
-      },
-   })
-);
+// app.use(
+//    session({
+//       name: "kepo",
+//       secret: "resiwicaksonoxfitriani",
+//       resave: false,
+//       saveUninitialized: false,
+//       store: store,
+//       cookie: {
+//          secure: "auto",
+//          httpOnly: true,
+//          maxAge: 1000 * 60 * 60 * 24 * 1, // 1 Day
+//       },
+//    })
+// );
 app.use(
    cors({
       credentials: true,
