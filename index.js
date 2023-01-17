@@ -35,8 +35,8 @@ const app = express();
 //    })
 // );
 
-app.get("/", () => {
-   console.log("Test cyclic");
+app.get("/", (req, res) => {
+   res.send("Test Cyclic");
 });
 
 app.listen(5000, () => console.log("Server is running in port 5000"));
