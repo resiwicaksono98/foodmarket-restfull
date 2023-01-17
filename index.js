@@ -6,7 +6,6 @@ const cors = require("cors");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const express = require("express");
-const { secretKey } = require("./config/Config");
 const app = express();
 
 // const store = new MongoDBStore({
