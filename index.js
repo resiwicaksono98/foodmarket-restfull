@@ -8,6 +8,7 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 const cron = require("node-cron");
 const express = require("express");
 const db = require("./config/Database");
+const config = require("./config/Config");
 
 // Routes
 const authRoutes = require("./app/auth/router");
@@ -28,15 +29,16 @@ const store = new MongoDBStore({
 });
 
 // Set Session
+app.set("trust proxy", 1);
 app.use(
    session({
       name: "kepo",
       secret: "resiwicaksonoxfitriani",
-      resave: true,
+      resave: false,
       saveUninitialized: true,
       store: store,
       cookie: {
-         secure: "auto",
+         secure: config.appStatus === "production" ? true : false,
          httpOnly: true,
          maxAge: 1000 * 60 * 60 * 24 * 1, // 1 Day
       },
