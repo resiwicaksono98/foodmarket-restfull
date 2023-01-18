@@ -32,8 +32,8 @@ app.use(
    session({
       name: "kepo",
       secret: "resiwicaksonoxfitriani",
-      resave: false,
-      saveUninitialized: false,
+      resave: true,
+      saveUninitialized: true,
       store: store,
       cookie: {
          secure: "auto",
