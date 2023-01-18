@@ -39,7 +39,6 @@ app.use(
       store: store,
       cookie: {
          secure: config.appStatus === "production" ? true : false,
-         httpOnly: true,
          maxAge: 1000 * 60 * 60 * 24 * 1, // 1 Day
       },
    })
