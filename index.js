@@ -47,7 +47,7 @@ app.use(
 app.use(
    cors({
       credentials: true,
-      origin: ["https://foodmarket-frontend.vercel.app", "http://localhost:5173"],
+      origin: ["https://foodmarket-frontend.vercel.app", "http://localhost:5173", "http://localhost:4173"],
       optionsSuccessStatus: 200,
    })
 );
