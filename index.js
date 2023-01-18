@@ -29,7 +29,7 @@ const store = new MongoDBStore({
 });
 
 // Set Session
-app.set("trust proxy", 1);
+app.enable("trust proxy");
 app.use(
    session({
       name: "kepo",
@@ -40,6 +40,7 @@ app.use(
       cookie: {
          secure: config.appStatus === "production" ? true : false,
          maxAge: 1000 * 60 * 60 * 24 * 1, // 1 Day
+         sameSite: "none",
       },
    })
 );
