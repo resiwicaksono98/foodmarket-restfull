@@ -69,32 +69,11 @@ const update = async (req, res, next) => {
 };
 
 const destory = async (req, res, next) => {
-   let policy = policyFor(req.user);
    try {
-      let { id } = req.params;
-      let address = await DeliveryAddress.findById(id);
-      let subjectAddress = subject("DeliveryAddress", {
-         ...address,
-         user_id: address.user,
-      });
-      let policy = policyFor(req.user);
-      if (!policy.can("delete", subjectAddress)) {
-         return res.json({
-            error: 1,
-            message: `You are allowed to modify this resource`,
-         });
-      }
-      address = await DeliveryAddress.findByIdAndDelete(id);
-      return res.json(address);
-   } catch (err) {
-      if (err && err.name === "ValidationError") {
-         return res.json({
-            error: 1,
-            message: err.message,
-            fields: err.errors,
-         });
-      }
-      next(err);
+      let address = await DeliveryAddress.findByIdAndRemove(req.params.id);
+      res.status(200).json(address);
+   } catch (error) {
+      console.log(error);
    }
 };
 

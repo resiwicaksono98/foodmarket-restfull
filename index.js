@@ -24,6 +24,8 @@ const paymentRouter = require("./app/payment/router");
 const app = express();
 
 const store = new MongoDBStore({
+   // Local
+   //  uri: "mongodb://localhost:27017/foodstore",
    uri: `mongodb+srv://resiwicaksono:thonkwaq123@cluster0.a3dlh.mongodb.net/wakburgerbar?retryWrites=true&w=majority`,
    collection: "session",
 });
